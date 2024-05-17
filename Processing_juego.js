@@ -1,10 +1,13 @@
 let circuloRojo, circuloAzul;
+
 let rojoColor, azulColor, violetaColor, negroColor, blancoColor;
+
 let colision = false;
 let tiempoColision = 0;
 
 function setup() {
   createCanvas(600, 600);
+  
   rojoColor = color(255, 0, 0);
   azulColor = color(0, 0, 255);
   violetaColor = color(148, 0, 211);
@@ -12,7 +15,7 @@ function setup() {
   blancoColor = color(255);
 
   circuloRojo = new Circulo(50, height / 2, 30, rojoColor, 8); // Movimiento más rápido
-  circuloAzul = new Circulo(550, height / 2, 30, azulColor, 6); // Movimiento más lento
+  circuloAzul = new Circulo(550, height / 2, 30, azulColor, 4); // Movimiento más lento
 }
 
 function draw() {
@@ -30,7 +33,7 @@ function draw() {
       circuloRojo.color = rojoColor;
       circuloAzul.color = azulColor;
     }
-  } 
+  }
 
   // Actualizar y mostrar círculos
   circuloRojo.update();
