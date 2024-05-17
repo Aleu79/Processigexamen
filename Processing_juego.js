@@ -14,20 +14,20 @@ function setup() {
   negroColor = color(0);
   blancoColor = color(255);
 
-  circuloRojo = new Circulo(50, height / 2, 30, rojoColor, 8); // Movimiento más rápido
-  circuloAzul = new Circulo(550, height / 2, 30, azulColor, 4); // Movimiento más lento
+  circuloRojo = new Circulo(50, height / 2, 30, rojoColor, 8); 
+  circuloAzul = new Circulo(550, height / 2, 30, azulColor, 4); 
 }
 
 function draw() {
   background(220);
 
-  // Si hay colisión
+
   if (colision) {
-    // Cambiar los colores a violeta
+  
     circuloRojo.color = violetaColor;
     circuloAzul.color = violetaColor;
 
-    // Si ha pasado el tiempo suficiente, restablecer los colores y la colisión
+   
     if (millis() - tiempoColision > 1500) {
       colision = false;
       circuloRojo.color = rojoColor;
@@ -35,26 +35,26 @@ function draw() {
     }
   }
 
-  // Actualizar y mostrar círculos
+
   circuloRojo.update();
   circuloAzul.update();
   circuloRojo.display();
   circuloAzul.display();
 
-  // Colisión con el techo
+  
   if (circuloRojo.y - circuloRojo.radius <= 0) {
-    circuloRojo.color = blancoColor; // Cambiar a blanco si colisiona con el techo
+    circuloRojo.color = blancoColor; 
   }
 
-  // Colisión con el piso
+  
   if (circuloAzul.y + circuloAzul.radius >= height) {
-    circuloAzul.color = negroColor; // Cambiar a negro si colisiona con el piso
+    circuloAzul.color = negroColor; 
   }
 
-  // Colisión entre los círculos
+ 
   if (circuloRojo.intersects(circuloAzul)) {
     colision = true;
-    tiempoColision = millis(); // Guardar el tiempo de la colisión
+    tiempoColision = millis(); 
   }
 }
 
